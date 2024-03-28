@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Article } from '../models/Article.model';
 import { ModalController } from '@ionic/angular';
 import { DetailComponent } from '../detail/detail.component';
+import { ShoppingService } from '../service/shopping.service';
 
 @Component({
   selector: 'app-shoppinglist',
@@ -10,15 +11,15 @@ import { DetailComponent } from '../detail/detail.component';
   styleUrl: './shoppinglist.component.css'
 })
 export class ShoppinglistComponent {
-  listeArticle : Article[] = [
-    {id : 1, nom : "Armoire", prix : 100},
-    {id : 2, nom : "Coca", prix : 2},
-    {id : 3, nom : "Iphone", prix : 10000},
-  ]
+  listeArticle! : Article[]
 
   constructor(
-    private modalCTRL : ModalController
-  ) {}
+    private modalCTRL : ModalController,
+    private shopService : ShoppingService
+  ) {
+    this.listeArticle = shopService.listeArticle
+
+  }
 
    async openModal(id : number){
     let modal = await this.modalCTRL.create({

@@ -35,6 +35,10 @@ export class Tab1Page {
       handler : () => {this._router.navigate(["tabs/tab1/liste"])}
     },
     {
+      text: 'Ajouter Article',
+      handler : () => {this._router.navigate(["tabs/tab1/ajout"])}
+    },
+    {
       text: 'Cancel',
       role: 'cancel',
       data: {
