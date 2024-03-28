@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Shopping
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,17 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Shopping</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  @if(isAdmin){
+    <ion-button id="open-action-sheet">Menu</ion-button>
+  }
+  <ion-action-sheet trigger="open-action-sheet" header="Actions" [buttons]="actionSheetButtons"></ion-action-sheet>
+  <!-- <app-shoppinglist></app-shoppinglist> -->
+<router-outlet></router-outlet>
+
+  <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
 </ion-content>
+

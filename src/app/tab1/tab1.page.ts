@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,39 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  isAdmin : boolean = true
+
+  test() {
+    alert("Coucou")
+  }
+
+  constructor(
+    private _router : Router
+  ){}
+
+  public actionSheetButtons = [
+    {
+      text: 'Execute Action',
+      role: 'destructive',
+      data: {
+        action: 'delete',
+      },
+      handler: () => { this.test() }
+    },
+    {
+      text: 'Afficher Liste',
+      data: {
+        action: 'share',
+      },
+      handler : () => {this._router.navigate(["tabs/tab1/liste"])}
+    },
+    {
+      text: 'Cancel',
+      role: 'cancel',
+      data: {
+        action: 'cancel',
+      },
+    },
+  ];
 
 }

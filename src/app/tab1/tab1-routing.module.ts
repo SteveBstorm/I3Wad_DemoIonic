@@ -1,12 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Tab1Page } from './tab1.page';
+import { ShoppinglistComponent } from './shoppinglist/shoppinglist.component';
 
 const routes: Routes = [
   {
     path: '',
     component: Tab1Page,
-  }
+    children : [
+      {
+        path : 'liste',
+        component : ShoppinglistComponent
+      }
+    ]
+  },
+
 ];
 
 @NgModule({

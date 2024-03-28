@@ -1,0 +1,6 @@
+<ion-list>
+  <ion-list-header>Liste de course</ion-list-header>
+  <ion-item *ngFor="let a of listeArticle" (click)="openModal(a.id)">
+    {{a.nom}}
+  </ion-item>
+</ion-list>
