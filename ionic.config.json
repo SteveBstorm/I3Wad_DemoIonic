@@ -1,0 +1,7 @@
+{
+  "name": "I3WadDemoIonic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
